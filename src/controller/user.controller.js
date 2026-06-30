@@ -1,4 +1,4 @@
-import { User } from "../models/user.model.js";
+import { User } from "../models/user.models.js";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -107,7 +107,7 @@ const generateAccessAndRefreshTokens = async (userId) =>{
 
 
 
-const accesstokengenerate = (req,res) =>{
+const accesstokengenerate = async (req,res) =>{
    try {
      const {refreshToken} = req.cookies;
 
