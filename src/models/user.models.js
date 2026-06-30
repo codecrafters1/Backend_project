@@ -11,6 +11,11 @@ password : {
 },
 refreshToken:{
     type:String,
+},
+email:{
+    type:String,
+    require:true,
+    unique:true 
 }
 
 },{timestamps:true});
@@ -30,7 +35,7 @@ userSchema.methods.generateAccessToken = function(){
 return  jwt.sign({
         _id:this._id,
         userName:this.userName,
-      
+        email:this.email
     },
     process.env.ACCESS_TOKEN_SECRET, 
     {
